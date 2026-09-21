@@ -1,6 +1,6 @@
 export interface ProductoFormData {
     title: string;
-    price: string; // Usar string para facilitar input controlado
+    price: string;
     description: string;
     category: string;
     image: string;
