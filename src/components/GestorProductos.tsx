@@ -18,6 +18,17 @@ const GestorProductos: React.FC = () => {
         handleInputChange,
     } = useProducto();
 
+    const handleEdit = (producto: typeof productos[number]) => {
+        setProductoToEdit(producto);
+        setFormData({
+            title: producto.title,
+            price: String(producto.price),
+            description: producto.description ?? "",
+            category: producto.category,
+            image: producto.image ?? "",
+        });
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -59,7 +70,7 @@ const GestorProductos: React.FC = () => {
             />
             <ProductoList
                 productos={productos}
-                handleEdit={setProductoToEdit}
+                handleEdit={handleEdit}
                 handleDelete={deleteProducto}
                 loading={loading}
             />
